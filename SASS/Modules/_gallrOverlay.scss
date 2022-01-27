@@ -1,0 +1,97 @@
+.OVERLAY_BASE{
+    @include flexBox(center,row);
+    position: absolute;
+    z-index: 185;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background-color: transparentize($lightBox, 0.2);
+    .GALLRY_CONTAINER{
+        @include flexBox(center,column);
+        position: relative;
+        gap: 25px;
+        flex-basis: 40%;
+        @include breakPoint(small){
+            flex-basis: 65%;
+        }
+        
+        @include breakPoint(mobile){
+            flex-basis: 70%;
+        }
+        .MAIN_IMAGE_CONTAINER{
+            position: relative;
+            flex-basis: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            
+
+            img{
+                max-width: 100%;
+            }
+
+            .ARROWS_CONTAINER{
+                @include flexBox(space-between,row);
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                padding: 25px;
+                transform: translateY(-50%);
+
+                .ARROW_IMAGE{
+                @include flexBox(space-between,row);
+                    padding: 15px;
+                    height: 40px;
+                    width: 40px;
+                    background-color: $White;
+                    border-radius: 50%;
+                    box-shadow: 0 5px 45px transparentize($lightBox, 0.5);
+                    cursor: pointer;
+                    transform: scale(1.2)
+                }
+            }
+
+        }
+        .MORE_PRODUCT_PHOTOS_CONTAINER{
+            @include flexBox(center,row);
+            gap: 25px;
+            flex-basis: 100%;
+            padding: 0 30px;
+
+            .PRODUCT_PHOTO{
+                position: relative;
+                border-radius: 10px;
+                overflow: hidden;
+                cursor: pointer;
+                background-color: $White;
+
+
+                &:hover{
+                    filter:opacity(0.7);
+                }
+
+                img.PHOTO{
+                    max-width: 100%;
+
+                    &.active{
+                        border: 5px solid $main_Orange;
+                        filter:opacity(0.7);
+                    }
+                }
+            }
+        }
+        .OVERLAY_ClOSE_CONTAINER{
+            position: absolute;
+            z-index: 200;
+            top: -30px;
+            right: 0;
+            transform: translateY(-50%) rotate(45deg) scale(1.5);
+            cursor: pointer;
+
+            img{
+                max-width: 100%
+            }
+        }
+    }
+}

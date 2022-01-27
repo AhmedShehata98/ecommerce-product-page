@@ -1,0 +1,272 @@
+.home{
+    @include flexBox(center,row);
+    position: relative;
+    min-height: calc(100vh - 75px);
+
+    .container{
+        position: relative;
+        @include flexBox(center,row);
+        gap: 45px;
+        
+        @include breakPoint(small){
+            flex-direction: column !important ;
+            padding: 0 !important;
+            margin: 0 !important;
+
+            gap: 10px
+        }
+
+        .product-preview-images{
+            @include flexBox(center,column);
+            box-sizing: border-box;
+            flex-basis: 50%;
+
+            .preview-main{
+                position: relative;
+                width: 100%;
+                padding: 15px;
+                overflow: hidden;
+                transition: transform 0.3s ease-out;
+
+                @include breakPoint(small){
+                    padding: 0;
+                }
+                @include breakPoint(pc){
+                    &:hover{
+                        transform: scale(1.02);
+                        cursor: pointer;
+                    }
+                }
+
+                img{
+                    max-width: 100%;
+                    border-radius: 10px;
+                }
+                .arrows{
+                    @include flexBox(space-between,row);
+                    width: 100%;
+                    position: absolute;
+                    z-index: 10;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    padding: 0 30px;
+
+                    @include breakPoint(pc){
+                        display: none;
+                    }
+
+                    .arrow{
+                        @include flexBox(center,row);
+                        background-color: $White;
+                        padding: 10px;
+                        height: 40px;
+                        width: 40px;
+                        border-radius: 50%;
+                        box-shadow: 0 5px 20px transparentize($lightBox, 0.7);
+                        cursor: pointer;
+                        img{
+                            position: relative;
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+            .more-images{
+                @include flexBox(space-between,row);
+                box-sizing: border-box;
+                width: 100%;
+                gap: 25px;
+                padding: 10px 15px;
+                @include breakPoint(small){
+                    display: none;
+                }
+                .box-image{
+                    @include flexBox(center,row);
+                    flex-basis: 100%;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    cursor: pointer;
+                    transition: transform 0.3s ease-out ,filter 0.3s ease-out;
+
+                    &:hover{
+                        transform: scale(1.1);
+                        filter: opacity(0.6);
+                    }
+
+
+                    }
+
+                    img{
+                        max-width: 100%;
+
+                        &.active{
+                            border: 4px solid $main_Orange;
+                            img{
+                                filter: opacity(0.6);
+                            }
+                    }
+                }
+            }
+        }
+        
+        .product-details-box{
+            @include flexBox(center,column);
+            align-self: flex-start;
+            flex-basis: 50%;
+
+            @include breakPoint(mobile){
+                width: 100%;
+            }
+            
+            .textBox{
+                @include flexBox(center,column);
+                align-items: flex-start;
+                margin-top: 45px;
+                
+                @include breakPoint(small){
+                    margin-top: 0;
+                }
+                
+                h4.companyName{
+                    color: $main_Orange;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    margin-bottom: 8px;
+
+                }
+                h2.heading-prodName{
+                    line-height: 50px;
+                    text-transform: capitalize;
+                    font-weight: bold;
+                    font-size: 2.8rem;
+                    color: $txt_main_vark_blue;
+                    margin-top: 0;
+                    
+                    @include breakPoint(mobile){
+                        font-size: 2.0rem;
+                        line-height: 30px;
+                    }
+                }
+                p.description{
+                    text-transform: capitalize;
+                    color: $txt_alt_vark_blue;
+                    font-weight: bold;
+                    line-height: 27px;
+                    margin: 0;
+
+                    @include breakPoint(mobile){
+                        max-width: 375px;
+                        text-align: justify
+                    }
+                }
+                p.rate{
+                    @include flexBox(center,row);
+                    gap: 15px;
+                    color: $txt_main_vark_blue;
+                    font-size: 2rem;
+                    font-weight: bold;
+                    margin-bottom: 8px;
+
+                    span.discount{
+                        background-color: $shadow_orange_clr;
+                        color: $main_Orange;
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        padding: 2px 5px;
+                        border-radius: 8px;
+                    }
+                }
+                .beforeDiscount{
+                    color: $txt_alt_2_blue;
+                    text-decoration:line-through;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    margin: 0;
+                    padding-left: 2px;
+                }
+            }
+            .addtocart-box{
+                @include flexBox(space-between,row);
+                gap: 10px;
+                width: 100%;
+                margin-top:65px ;
+
+                @include breakPoint(small){
+                    flex-direction: column;
+                    gap: 25px
+                }
+                .pordCount{
+                    @include flexBox(center,row);
+                    flex-basis: 30%;
+                    gap: 10px;
+                    min-width: 100px;
+                    background-color: $Light-grayish;
+                    border-radius: 15px;
+
+                @include breakPoint(small){
+                    justify-content: space-around;
+                    width: 90%;
+                }
+
+                    .minus,
+                    .plus{
+                        @include flexBox(center,row);
+                        padding: 15px 20px;
+                        cursor: pointer;
+                        border-radius: 0 10px 10px 0;
+                        user-select: none;
+
+                    @include breakPoint(small){
+                        padding: 25px 80px;
+                    }
+                        &:hover{
+                            background-color: $txt_alt_2_blue;
+                        }
+                    }
+                    .minus{
+                        border-radius:  10px 0 0 10px ;
+                        padding: 20px;
+                        
+                        @include breakPoint(small){
+                            padding: 20px;
+                        }
+                    }
+                    .displayCount{
+                        font-weight: bold;
+                        padding: 15px 25px;
+                    }
+                }
+                .addCart{
+                    @include flexBox(center,row);
+                    gap: 8px;
+                    flex-basis: 60%;
+                    padding: 15px 5px;
+                    border-radius: 10px;
+                    border: none;
+                    background-color: $main_Orange;
+                    color: $shadow_orange_clr;
+                    cursor: pointer;
+                    transition:  background-color 0.3s ease-out;
+                    box-shadow: 0 25px 35px $shadow_orange_clr;
+
+                    @include breakPoint(small){
+                        width: 90%;
+                        height: 70px;
+                        flex-basis: initial;
+                        margin-bottom: 120px;
+                    }
+
+                    &:hover{
+                        background-color: transparentize($main_Orange, 0.3);
+                        color:#fff;
+                    }
+                    .cartBtnIco{
+                        color: $shadow_orange_clr;
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+        }
+    }
+}

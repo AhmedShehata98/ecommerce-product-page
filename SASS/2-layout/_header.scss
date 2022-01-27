@@ -1,0 +1,293 @@
+.navbar{
+    @include flexBox(center,row);
+    position: relative;
+    z-index: 100;
+    height: 75px;
+    border-bottom: 2px solid transparentize($txt_alt_2_blue, 0.8);
+    
+    .container{
+        @include flexBox(space-around,row);
+        height: 75px;
+        
+
+        .logo{            
+            img{
+                max-width: 100%;
+            }
+        }
+        .toggle{
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-out;
+            
+        @include breakPoint(meduim){
+            opacity: 1;
+            pointer-events: all;
+        }
+
+            img{
+                max-width: 100%;
+            }
+        }
+        .tabs{
+            @include flexBox(center,row);
+            height: inherit;
+
+        @include breakPoint(meduim){
+            flex-direction :column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 65%;
+            height: 100vh;
+            padding: 20px 10px;
+            background-color: $White;
+            transition: transform 0.3s ease-in;
+            transform: translateX(-900px);
+            box-shadow: 5px 0px 10px $txt_alt_2_blue;
+        }
+        
+        &.active{
+                transform: translateX(0);
+                transition: transform 0.3s ease-out;
+                
+            }
+
+            .closeNavbar{
+                opacity: 0;
+                pointer-events: none;
+                padding: 5px 0px 30px 15px;
+                cursor: pointer;
+                transition: opacity 0.3s ease-out;
+
+                
+                @include breakPoint(meduim){
+                    opacity: 1;
+                    pointer-events: all;
+
+                }
+            }
+
+            >li{
+                @include flexBox(center,row);
+                position: relative;
+                width: 85px;
+                height: 100%;
+
+                @include breakPoint(meduim){
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    width: fit-content;
+                    height: fit-content;
+                }
+                @include breakPoint (pc){
+
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        width: 0;
+                        height: 4px;
+                        transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                        transform: translateX(-50%);
+                        background-color: $main_Orange;
+                    }
+                    &:hover::after{
+                        width: 100%;
+                    }
+                }
+                
+
+                >a{
+                    padding: 15px;
+                    color: $txt_alt_2_blue;
+                    text-transform: capitalize;
+                    font-weight: bold;
+                    transition: color 0.3s ease-out;
+
+                    @include breakPoint(meduim){
+                        color: $lightBox;
+                    }
+                    &:hover
+                    {
+                        color: $txt_alt_vark_blue;
+                    }
+                }
+            }
+        }
+
+        .cart-account{
+            @include flexBox(center,row);
+            gap: 30px;
+            .cart-container{
+                @include flexBox(center,row);
+                position: relative;
+
+                .cart-logo{
+                    position: relative;
+                    cursor: pointer;
+
+                    &::after{
+                        @include flexBox(center,row);
+                        content: '3';
+                        position: absolute;
+                        z-index: 3;
+                        top: -5px;
+                        right: -10px;
+                        width: 8px;
+                        height: 8px;
+                        padding: 8px;
+                        color: $shadow_orange_clr;
+                        background-color: $main_Orange;
+                        border-radius: 50%;
+                    }
+                    img{
+                        max-width: 100%;
+                    }
+                }
+
+                .cart-box{
+                    @include flexBox(space-around,column);
+                    position: absolute;
+                    top: calc(100% + 15px);
+                    
+                    background-color:$Light-grayish ;
+                    box-shadow: 0 12px 45px transparentize($txt_alt_2_blue, 0.3);
+                    border-radius: 10px;
+                    width: 340px;
+                    height: 0;
+                    transition: height 0.3s ease-out;
+                    overflow: hidden;
+
+                    @include breakPoint(mobile){
+                        transform: translateX(40px)
+                    }
+
+                    .cart-bar{
+                        @include flexBox(flex-start,row);
+                        border-bottom: 1px solid transparentize($txt_alt_vark_blue, 0.8);
+                        padding: 8px;
+                        width: 100%;
+
+                        .title{
+                            text-transform: capitalize;
+                            font-weight: bold;
+                            margin: 8px;
+                            
+                        }
+                
+
+                    }
+
+                    .prodcuts-box{
+                        @include flexBox(flex-start,column);
+                        width: 100%;
+                        padding: 15px 20px ;
+
+                        .products-container{
+                                .MSG{
+                                    font-weight: bold;
+                                    color: $txt_alt_vark_blue;
+                                    
+                                }
+                                .product{
+                                    @include flexBox(flex-start,row);
+                                    gap: 12px;
+
+                                .product-img{
+                                    width: 40px;
+                                    height: 40px;
+                                    overflow: hidden;
+                                    border-radius: 5px;
+                                    
+                                    img{
+                                        max-width: 100%;
+                                    }
+                                }
+                                
+                                .product-details{
+                                    @include flexBox(center,column);
+                                    align-items: flex-start;
+                                    gap: 3px;
+                                    .product-name{
+                                        margin: 0;
+                                        font-size: 0.9rem;
+                                        font-weight: normal;
+                                        color: $txt_alt_vark_blue;
+                                    }
+                                    .product-rate{
+                                        display: inline-block;
+                                        margin: 0;
+                                        font-size: 0.9rem;
+                                        color: $txt_alt_vark_blue;
+                                        
+
+                                        >span.BeforeDis{
+                                            font-size: 0.9rem;
+                                            font-weight: bold;
+                                            color: $lightBox;
+
+                                        }
+                                        span.countSelected{
+                                            font-size: 0.7rem;
+                                            font-weight: bold;
+                                            color: $txt_alt_vark_blue;
+                                        }
+                                    }
+                                }
+                                .deleteIcon{
+                                    padding-left: 10px;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        .checkOut{
+                            width: 100%;
+                            height: 45px;
+                            margin: 15px 0 10px 0;
+                            border: initial;
+                            color: $shadow_orange_clr;
+                            background-color: $main_Orange;
+                            cursor: pointer;
+                            border-radius: 8px;
+                            transition: background-color 0.3s ease-out , box-shadow 0.3s ease-out;
+
+                            &:hover{
+                                background-color: darken($main_Orange, 12%);
+                                box-shadow: 0 5px 35px transparentize($txt_alt_2_blue, 0.4);
+                            }
+                        }
+                    }
+
+                    &.active{
+                        right:  -50px;
+                        height: auto;
+                        transition: height 0.3s ease-out;
+
+                    }
+                }
+            }
+            .account{
+                @include flexBox(center,row);
+                
+                .profile-img{
+                    @include flexBox(center,row);
+                    position: relative;
+                    width: 40px;
+                    height: 40px;
+                    background: linear-gradient(80deg,$main_Orange,$shadow_orange_clr);
+                    cursor: pointer;
+                    border-radius: 50%;
+
+                    img{
+                        max-width: calc(100% - 4px);
+                    }
+                }
+            }
+        }
+    }
+}

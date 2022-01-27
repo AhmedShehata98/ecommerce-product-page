@@ -1,0 +1,8 @@
+.container{
+    width: calc(100% - 30px);
+    margin: auto;
+    padding: 0 15px;
+}
+// param here is the margin value in 'px'
+@include ResponsiveContainer(40);
+// 

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  
+  <link rel="shortcut icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="SASS/0-base/normalize.css">
+  <link rel="stylesheet" href="product.css">
+  <!-- start font icom -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/js/all.min.js" integrity="sha512-yk7SvYYZqGS11tWcb6cyoKiwgrNBeCHC7RebrVa0QOySVjh6WjEjaBaBue+VvDBHEfAGa0Z8/b6+LhoGSeweaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- end font icom -->
+  <title>Frontend Mentor | E-commerce product page</title>
+
+
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="toggle">
+        <img src="images/icon-menu.svg" alt="icon-menu.svg">
+      </div>
+        <div class="logo">
+          <img src="images/logo.svg" alt="logo.svg">
+        </div>
+      <nav class="tabs">
+        <div class="closeNavbar">
+          <img src="images/icon-close.svg" alt="icon-close.svg">
+        </div>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+      </nav>
+      <div class="cart-account">
+        <div class="cart-container">
+          <span class="cart-logo">
+            <img src="images/icon-cart.svg" alt="icon-cart.svg">
+          </span>
+          <div class="cart-box">
+            <header class="cart-bar"><h3 class="title">Cart</h3></header>
+            <div class="prodcuts-box">
+              <div class="products-container">
+
+              </div>
+              <button class="checkOut">Checkout</button>
+            </div>
+          </div>
+        </div>
+        <div class="account">
+          <div class="profile-img">
+            <img src="images/image-avatar.png" alt="image-avatar.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+    <main class="home">
+      <section class="container">
+        <div class="product-preview-images">
+          <div class="preview-main">
+            <img src="images/image-product-1.jpg" alt="image-product-1.jpg">
+            <div class="arrows">
+              <div class="arrow left">
+                <img src="images/icon-previous.svg" alt="icon-previous.svg">
+              </div>
+              <div class="arrow right">
+                <img src="images/icon-next.svg" alt="icon-next.svg">
+              </div>
+            </div>
+          </div>
+          <div class="more-images">
+            <div class="box-image ">
+              <img class="active" data-img-src="images/image-product-1.jpg" src="images/image-product-1-thumbnail.jpg" alt="product-1-thumbnail.jpg">
+            </div>
+            <div class="box-image">
+              <img data-img-src='images/image-product-2.jpg' src="images/image-product-2-thumbnail.jpg" alt="product-2-thumbnail.jpg">
+            </div>
+            <div class="box-image">
+              <img  data-img-src='images/image-product-3.jpg' src="images/image-product-3-thumbnail.jpg" alt="product-3-thumbnail.jpg">
+            </div>
+            <div class="box-image">
+              <img data-img-src='images/image-product-4.jpg'  src="images/image-product-4-thumbnail.jpg" alt="product-4-thumbnail.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="product-details-box">
+          <div class="textBox">
+            <h4 class="companyName"> Sneaker Company </h4>
+            <h2 class="heading-prodName">Fall Limited Edition Sneakers</h2>
+            <p class="description"> These low-profile sneakers are your perfect casual wear companion. Featuring a 
+              durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+              <p class="rate">$125.00 <span class="discount">50%</span></p>
+              <p class="beforeDiscount">$250.00</p>
+          </div>
+          <div class="addtocart-box">
+            <div class="pordCount">
+              <span class="minus">
+                <img src="images/icon-minus.svg" alt="icon-minus.svg">
+              </span>
+              <label class="displayCount" >0</label>
+              <span class="plus">
+                <img src="images/icon-plus.svg" alt="icon-plus.svg">
+              </span>
+            </div>
+            <button class="addCart">
+              <i class="fas fa-shopping-cart cartBtnIco"></i>
+              Add to cart</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/AhmedShehata98/">Ahmed Shehata</a>.
+  </div>
+  <script src="product.js"></script>
+</body>
+</html>

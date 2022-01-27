@@ -1,0 +1,14 @@
+.attribution{
+    @include flexBox(center,row);
+    background-color: $White;
+    font-weight: bold;
+    color: $txt_alt_vark_blue;
+
+    @include breakPoint(mobile){
+        flex-wrap: wrap;
+    }
+    >a{
+        padding: 0 10px;
+        color: #252525;
+    }
+}

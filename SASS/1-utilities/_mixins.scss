@@ -1,0 +1,47 @@
+@mixin flexBox ($justify,$dirction){
+    display: flex;
+    flex-direction: $dirction;
+    justify-content: $justify;
+    align-items: center;
+}
+
+// media query
+@mixin ResponsiveContainer($margin) {
+    $mediaSize:(768,992,1200);
+    @each $size in $mediaSize {
+        @media (min-width:($size + px)) {
+            .container{
+                width: calc(100% - 110px);
+                margin: 0 $margin +px;
+                padding: 0 15px;
+            }
+        }
+    }
+
+}
+
+@mixin breakPoint($mediaName) {
+    @if $mediaName == mobile{
+
+        @media (max-width:767px) {
+            @content;
+        }
+
+    }@else if $mediaName == small {
+
+        @media (max-width:768px) {
+            @content;
+        }
+
+    }@else if $mediaName == meduim{
+
+        @media (max-width:992px) {
+            @content;
+        }
+        
+    }@else if $mediaName == pc {
+        @media (min-width:993px) and (max-width:1440px) {
+            @content;
+        }
+    }
+}
