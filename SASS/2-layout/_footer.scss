@@ -6,9 +6,13 @@
 
     @include breakPoint(mobile){
         flex-wrap: wrap;
+        flex-direction: column;
     }
     >a{
-        padding: 0 10px;
-        color: #252525;
+        padding: 0 60px 0 5px;
+        color: $main_Orange;
+        @include breakPoint(small){
+            padding: 5px 10px 20px 10px;
+        }
     }
 }

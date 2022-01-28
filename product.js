@@ -6,19 +6,24 @@ thumbImage          = document.querySelectorAll('.box-image img'),
 heading_prodName    = document.querySelector('.heading-prodName'),
 prodctrate          = document.querySelector('.rate'),
 prodctrate_BeforeDiscount = document.querySelector('.beforeDiscount'),
-
+arrowLeft           = document.querySelector('.arrows .left'),
+arrowRight          = document.querySelector('.arrows .right'),
 
 addCartBTN          = document.querySelector('.addCart'),
 prodcuts_CartBox    = document.querySelector('.products-container'),
-CartBox_deleteIcon    = document.querySelector('.deleteIcon'),
 product_count_Minus = document.querySelector('.minus'),
-counter = 0,
 product_count_Display = document.querySelector('.displayCount'),
 product_count_plus  = document.querySelector('.plus'),
 tabs        = document.querySelector('.tabs');
 
-CHECK_CART_IS_EMPTY();
+let counter = 0;
+let index = 1;
+window.addEventListener('load',function(){
+    let maxPageHeight = Math.max(document.body.scrollHeight);
+    document.documentElement.style.setProperty('--pageHeight',maxPageHeight+"px")
+})
 
+CHECK_CART_IS_EMPTY();
 
 cartLogo.addEventListener('click',function(e){
     document.querySelector('.cart-box').classList.toggle('active');
@@ -32,6 +37,7 @@ closeNavbar.addEventListener('click',function(){
     tabs.classList.remove('active');
 
 })
+
 // 
 Proudct_Img.addEventListener('click',GALLERY_PREVIEW_OVERLAY);
 
@@ -53,12 +59,35 @@ product_count_plus.addEventListener('click',function(){
 
 })
 
-if (CartBox_deleteIcon !== null) {
-    CartBox_deleteIcon.addEventListener('click',function(){
-        CartBox_deleteIcon.parentElement.remove();
+arrowLeft.addEventListener('click',function(){
+    if (index <=1) {
+        
+    }else{
+        index --
+    }
+    Proudct_Img.src = `images/image-product-${index}.jpg`
+})
+
+arrowRight.addEventListener('click',function(){
+    if (index >= 4) {
+        
+    }else{
+        index ++
+    }
+
+    Proudct_Img.src = `images/image-product-${index}.jpg`
+})
+// 
+///
+// 
+
+window.addEventListener('click',function(e){
+    if (e.target.classList.contains('deleteIcon')) {
+        e.target.parentElement.remove();
         CHECK_CART_IS_EMPTY();
-    })
-}
+    }
+})
+
 
 function CHECK_CART_IS_EMPTY(){
     if (prodcuts_CartBox.childElementCount <= 0 ) {
@@ -89,10 +118,19 @@ function ADD_TO_CART_PRODUCT(){
 
     addCartBTN.addEventListener('click',function(e){
         prodcuts_CartBox.innerHTML= PRODUCT ;
+        document.querySelector('.cartProuductCount').textContent = counter ;
         CHECK_CART_IS_EMPTY();
         prodcuts_CartBox.parentElement.lastElementChild.style.visibility= 'visible';
         prodcuts_CartBox.parentElement.lastElementChild.style.pointerEvents = 'all';
     })
+
+    // let CartBox_deleteIcon    = document.querySelector('.deleteIcon');
+
+    // CartBox_deleteIcon.addEventListener('click',function(){
+    //     CartBox_deleteIcon.parentElement.remove();
+    //     CHECK_CART_IS_EMPTY();
+    //     console.log('okay');
+    // })
 }
 
 
@@ -182,23 +220,6 @@ function GALLERY_PREVIEW_OVERLAY(){
     PHOTO_4.setAttribute('data-img-src','images/image-product-4.jpg')
 
     document.body.appendChild(OVERLAY_BASE);
-
-    // let  product_photos = Array.from(MORE_PRODUCT_PHOTOS_CONTAINER.children)
-    
-    // for(let i =0 ; i < product_photos.length ;i++){
-    //     const MAIN_IMG_TAGS = Array.from(product_photos[i].children);
-        
-    //     MAIN_IMG_TAGS.forEach(img =>{
-
-    //         img.addEventListener('click',function (e) {
-                    
-    //             img.classList.remove('active')
-    //             e.target.classList.add('active')
-    //         })
-    //     })
-        
-    // }
-
     // event Lisiner's
     // 
     OVERLAY_ClOSE_IMAGE.addEventListener('click',()=>{

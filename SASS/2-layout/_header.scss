@@ -11,8 +11,14 @@
         
 
         .logo{            
+            @include breakPoint(meduim){
+                margin-right: auto;
+            }
             img{
                 max-width: 100%;
+                @include breakPoint(pc){
+                    padding-right:80px ;
+                }
             }
         }
         .toggle{
@@ -24,6 +30,7 @@
         @include breakPoint(meduim){
             opacity: 1;
             pointer-events: all;
+            margin: 0 20px 0 0;
         }
 
             img{
@@ -32,6 +39,7 @@
         }
         .tabs{
             @include flexBox(center,row);
+            margin-right: auto;
             height: inherit;
 
         @include breakPoint(meduim){
@@ -42,18 +50,19 @@
             top: 0;
             left: 0;
             width: 65%;
-            height: 100vh;
+            height: var(--pageHeight);
             padding: 20px 10px;
             background-color: $White;
             transition: transform 0.3s ease-in;
             transform: translateX(-900px);
-            box-shadow: 5px 0px 10px $txt_alt_2_blue;
+            box-shadow: 5px 0px 10px $txt_alt_vark_blue;
         }
         
         &.active{
                 transform: translateX(0);
                 transition: transform 0.3s ease-out;
-                
+                filter: drop-shadow(190px 0 147px #252525);
+                z-index: 212;
             }
 
             .closeNavbar{
@@ -131,9 +140,8 @@
                     position: relative;
                     cursor: pointer;
 
-                    &::after{
+                    p.cartProuductCount{
                         @include flexBox(center,row);
-                        content: '3';
                         position: absolute;
                         z-index: 3;
                         top: -5px;
@@ -142,6 +150,7 @@
                         height: 8px;
                         padding: 8px;
                         color: $shadow_orange_clr;
+                        font-weight: bold;
                         background-color: $main_Orange;
                         border-radius: 50%;
                     }
@@ -164,7 +173,7 @@
                     overflow: hidden;
 
                     @include breakPoint(mobile){
-                        transform: translateX(40px)
+                        transform: translateX(20px) !important;
                     }
 
                     .cart-bar{

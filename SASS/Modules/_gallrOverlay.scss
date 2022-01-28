@@ -59,6 +59,10 @@
             flex-basis: 100%;
             padding: 0 30px;
 
+            @include breakPoint(small){
+                padding: 0 15px;
+            }
+
             .PRODUCT_PHOTO{
                 position: relative;
                 border-radius: 10px;
@@ -74,7 +78,7 @@
                 img.PHOTO{
                     max-width: 100%;
 
-                    &.active{
+                    &.active {
                         border: 5px solid $main_Orange;
                         filter:opacity(0.7);
                     }

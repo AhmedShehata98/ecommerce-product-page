@@ -41,6 +41,7 @@
                 img{
                     max-width: 100%;
                     border-radius: 10px;
+                    cursor: pointer;
                 }
                 .arrows{
                     @include flexBox(space-between,row);
@@ -144,7 +145,7 @@
                     margin-top: 0;
                     
                     @include breakPoint(mobile){
-                        font-size: 2.0rem;
+                        font-size: 1.5rem;
                         line-height: 30px;
                     }
                 }
@@ -167,6 +168,10 @@
                     font-size: 2rem;
                     font-weight: bold;
                     margin-bottom: 8px;
+
+                    @include breakPoint(mobile){
+                        font-size: 1.5rem;
+                    }
 
                     span.discount{
                         background-color: $shadow_orange_clr;
@@ -217,20 +222,19 @@
                         border-radius: 0 10px 10px 0;
                         user-select: none;
 
-                    @include breakPoint(small){
-                        padding: 25px 80px;
-                    }
                         &:hover{
                             background-color: $txt_alt_2_blue;
+                        }
+
+                        img{
+                            @include breakPoint(small){
+                                padding: 10px 35px;
+                            }
                         }
                     }
                     .minus{
                         border-radius:  10px 0 0 10px ;
                         padding: 20px;
-                        
-                        @include breakPoint(small){
-                            padding: 20px;
-                        }
                     }
                     .displayCount{
                         font-weight: bold;
